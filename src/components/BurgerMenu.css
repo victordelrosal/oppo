@@ -1,0 +1,97 @@
+/* Styles for the BurgerMenu component */
+.burger-menu-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.burger-icon {
+  width: 30px;
+  height: 25px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1001; /* Ensure icon is above menu items initially */
+}
+
+.burger-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #3b5998; /* Example color, adjust as needed */
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.burger-icon span:nth-child(1) { top: 0px; }
+.burger-icon span:nth-child(2) { top: 10px; }
+.burger-icon span:nth-child(3) { top: 20px; }
+
+.burger-icon.open span:nth-child(1) {
+  top: 10px;
+  transform: rotate(135deg);
+}
+
+.burger-icon.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.burger-icon.open span:nth-child(3) {
+  top: 10px;
+  transform: rotate(-135deg);
+}
+
+.menu-items {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Start off-screen */
+  width: 220px;
+  height: 100%;
+  background-color: #f8f9fa; /* Example color */
+  padding: 70px 20px 20px;
+  transition: left 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  z-index: 1000; /* Below burger icon when closed, but above content */
+}
+
+.menu-items.open {
+  left: 0; /* Slide in */
+}
+
+.menu-items ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-items li {
+  margin-bottom: 15px;
+}
+
+.menu-items a.menu-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  display: block;
+  padding: 8px 10px;
+  border-radius: 4px;
+}
+
+.menu-items a.menu-link:hover {
+  background-color: #e9ecef;
+  color: #0056b3;
+}
+
+/* Hide the original Quick Navigation if it still exists and is not needed */
+/* You might have this in your global styles.css already */
+/*
+.quick-navigation-container {
+  display: none;
+}
+*/

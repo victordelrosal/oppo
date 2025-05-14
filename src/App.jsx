@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronRight, CheckCircle, Book, Target, Activity, Zap, LayoutList, Crosshair, ArrowRight } from 'lucide-react';
+import { ChevronDown, ChevronRight, CheckCircle, Book, Target, Activity, Zap, Crosshair, ArrowRight } from 'lucide-react';
 
 const Section = ({ title, children, defaultOpen = false, icon: Icon = Book }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
@@ -189,21 +189,6 @@ const BaseballDiagram = () => {
   );
 };
 
-// Quick Navigation Component
-const QuickNavItem = ({ icon: Icon, title, description }) => {
-  return (
-    <div className="flex items-start p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer group">
-      <div className="p-2 rounded-lg mr-3 flex-shrink-0 bg-gradient-to-br from-blue-100 to-blue-200 group-hover:from-blue-200 group-hover:to-blue-300 transition-all duration-200">
-        <Icon size={18} className="text-blue-700" />
-      </div>
-      <div>
-        <h4 className="font-medium text-blue-800 mb-1">{title}</h4>
-        <p className="text-xs text-gray-600">{description}</p>
-      </div>
-    </div>
-  );
-};
-
 const App = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
@@ -235,21 +220,6 @@ const App = () => {
                 <ArrowRight size={16} className="mr-2" /> Expand all sections below to learn more
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Table of Contents - Quick Navigation */}
-        <div className="mb-10 bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
-          <h3 className="text-lg font-bold text-blue-800 mb-4 flex items-center">
-            <LayoutList size={18} className="mr-2" /> Quick Navigation
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <QuickNavItem icon={Book} title="Introduction" description="Why opposite-field hitting matters" />
-            <QuickNavItem icon={Zap} title="Swing Mechanics" description="Core technique adjustments" />
-            <QuickNavItem icon={Activity} title="Stance & Positioning" description="Body positioning for success" />
-            <QuickNavItem icon={Crosshair} title="Timing & Recognition" description="Recognizing and hitting outside pitches" />
-            <QuickNavItem icon={Target} title="Drills" description="7 practice drills for muscle memory" />
-            <QuickNavItem icon={Activity} title="Baseball vs. Softball" description="Sport-specific considerations" />
           </div>
         </div>
 
